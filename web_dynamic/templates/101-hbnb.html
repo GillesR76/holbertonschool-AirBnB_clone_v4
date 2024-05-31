@@ -9,7 +9,7 @@
     <link type="text/css" rel="stylesheet" href="../static/styles/8-places.css?{{cache_id}}">
     <link rel="icon" href="../static/images/icon.png" />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="static/scripts/3-hbnb.js?{{cache_id}}"></script>
+    <script src="static/scripts/101-hbnb.js?{{cache_id}}"></script>
     <title>HBnB</title>
   </head>
   <body>
@@ -25,11 +25,11 @@
 	  <div class="popover">
 	    <ul>
 	      {% for state in states %}
-	      <li>
+	      <li><input type="checkbox" style="margin-right: 10px;" data-id="{{ state.id }}" data-name="{{ state.name }}">
 		<h2>{{ state[0].name }}:</h2>
 		<ul>
 		  {% for city in state[1] %}
-		  <li>{{ city.name }}</li>
+		  <li><input type="checkbox" style="margin-right: 10px;" data-id="{{ city.id }}" data-name="{{ city.name }}">{{ city.name }}</li>
 		  {% endfor %}
 		</ul>
 	      </li>
@@ -52,7 +52,14 @@
       </section>
       <div class="placesh1"><h1>Places</h1></div>
       <section class="places">
-	
+      </section>
+      <section class="reviews">
+        <h2>Reviews <span id="toggle_reviews" style="cursor: pointer;">show</span></h2>
+        <ul>
+	      {% for review in reviews %}
+	      <li><input type="checkbox" style="margin-right: 10px;" data-id="{{ review.id }}" data-name="{{ review.name }}">{{ review.name }}</li>
+	      {% endfor %}
+	    </ul>
       </section>
     </div>
     <footer>
